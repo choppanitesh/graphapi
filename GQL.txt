@@ -1,0 +1,64 @@
+query GetOrders{
+  orders{
+    nodes{
+      address
+      email
+      orderDate
+      orderId
+      orderName
+      phoneNumber
+      userName
+    }
+  }
+}
+
+
+query GetOrders{
+  orders(first:1){
+    nodes{
+      address
+      email
+      orderDate
+      orderId
+      orderName
+      phoneNumber
+      userName
+    }
+  }
+}
+
+
+query GetOrders{
+  orders(where:{userName :{eq: "Nitesh Choppa"}} ){
+    nodes{
+      address
+      email
+      orderDate
+      orderId
+      orderName
+      phoneNumber
+      userName
+    }
+  }
+}
+
+
+mutation AddOrder {
+  addOrder(input:{
+    email:"Nitesh.Choppa@gmail.com"
+    phoneNumber: 900044
+    address: "TX"
+    orderName: "Camera"
+    userName: "Nitesh Choppa"
+  }){
+    orders{
+      address
+      email
+      orderDate
+      orderId
+      orderName
+      phoneNumber
+      userName
+    }
+  }
+}
