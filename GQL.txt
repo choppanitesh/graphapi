@@ -1,3 +1,43 @@
+mutation AddProduct {
+  addProduct(
+    input: {
+     productName:"Nokia E71",
+     cost:"600"
+    }
+  ) {
+    product {
+     productName
+     cost
+    }
+  }
+}
+
+
+mutation AddOrder {
+  addOrder(
+    input: {
+      email: "Nitesh@gmail.com"
+      phoneNumber: 9966447788
+      address: "SL"
+      orderName: "Phone"
+      userName: "Nitesh Choppa",
+      productId:3
+    }
+  ) {
+    orders {
+      address
+      email
+      orderDate
+      orderId
+      orderName
+      phoneNumber
+      userName
+    }
+  }
+}
+
+
+
 query GetOrders{
   orders{
     nodes{
@@ -8,57 +48,30 @@ query GetOrders{
       orderName
       phoneNumber
       userName
+      productId
     }
   }
 }
 
+query OrderSummery{
+  orderSummery(orderId:2){
+    orderId
+    orderName
+    orderDate
+    productName
+    cost
+  }
+}
 
-query GetOrders{
-  orders(first:1){
+
+query GetProducts{
+  products{
     nodes{
-      address
-      email
-      orderDate
-      orderId
-      orderName
-      phoneNumber
-      userName
+      productId
+      productName
+      cost
+      createdOn
     }
   }
 }
 
-
-query GetOrders{
-  orders(where:{userName :{eq: "Nitesh Choppa"}} ){
-    nodes{
-      address
-      email
-      orderDate
-      orderId
-      orderName
-      phoneNumber
-      userName
-    }
-  }
-}
-
-
-mutation AddOrder {
-  addOrder(input:{
-    email:"Nitesh.Choppa@gmail.com"
-    phoneNumber: 900044
-    address: "TX"
-    orderName: "Camera"
-    userName: "Nitesh Choppa"
-  }){
-    orders{
-      address
-      email
-      orderDate
-      orderId
-      orderName
-      phoneNumber
-      userName
-    }
-  }
-}
