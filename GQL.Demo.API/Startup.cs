@@ -1,5 +1,7 @@
 using GraphDemo.Entities;
 using GraphDemo.Models;
+using GraphDemo.Mutations;
+using GraphDemo.Query;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,8 +29,8 @@ namespace GraphDemo
                 .AddProjections()
                 .AddFiltering()
                 .AddSorting()
-                .AddQueryType<OrderQueries>()
-                .AddMutationType<Mutation>()
+                .AddQueryType<QueryResolver>()
+                .AddMutationType<MutationResolver>()
                 .AddFiltering()
                 .AddSorting(); 
         }

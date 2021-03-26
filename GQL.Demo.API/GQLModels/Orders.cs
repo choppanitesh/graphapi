@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GraphDemo.Models
+namespace GraphDemo.GQLModels
 {
     public class Orders
     {
-        [Key]
         public int OrderId { get; set; }
         public string OrderName { get; set; }
         public string UserName { get; set; }
@@ -17,7 +15,7 @@ namespace GraphDemo.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public int ProductId { get; set; }
-        public Product Product { get; set; }
-
+        public string ProductName { get; set; }
+        public decimal Cost { get; set; }
     }
 }
